@@ -1,58 +1,107 @@
 # Query Builder
 
-The `Query` class provides a fluent, secure, read-only SQL builder with safe parameter binding and multiple execution formats.
+The `Query` class provides a fluent, secure, read-only SQL builder with safe parameter binding, advanced joins, and multiple execution formats.
 
-## Basic Usage
-
-Start a query fluently using `Query::table()`, chain your clauses, and execute with `all()`, `one()`, `value()`, or `exists()`.
+## Setup & Initialization
 
 ```php
 use LiteTable\Database;
 use LiteTable\Query;
 
-$db = Database::make('mysql:host=localhost;dbname=my_database;charset=utf8mb4', 'root', 'secret');
+$pdo = new PDO('sqlite::memory:');
+$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-// Fetch multiple rows as an array of objects
-$admins = Query::table('users', $db)
-    ->select(['id', 'name', 'email'])
+$pdo->exec("
+    CREATE TABLE users (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        name TEXT,
+        status TEXT
+    )
+");
+
+$pdo->exec("
+    CREATE TABLE profiles (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        user_id INTEGER,
+        bio TEXT,
+        score REAL
+    )
+");
+
+$db = new Database($pdo);
+
+```
+
+---
+
+## 1. Basic Select with Where Condition
+
+```php
+$activeUsers = (new Query($db))
+    ->select('id, name')
+    ->from('users')
     ->where('status', '=', 'active')
-    ->and('role', '=', 'admin')
-    ->orderBy('name', 'ASC')
     ->all();
 
-foreach ($admins as $admin) {
-    echo $admin->name . "\n";
+foreach ($activeUsers as $u) {
+    echo "Active User: {$u->name}\n";
 }
 
 ```
 
 ---
 
-## Advanced Conditions (`IN`, `NOT IN`, `NULL`)
-
-The builder handles array bindings and null checks safely out of the box:
+## 2. Advanced JOIN Query
 
 ```php
-// Using IN / andIn clauses
-$users = Query::table('users', $db)
-    ->select('*')
-    ->where('status', '=', 'active')
-    ->andIn('id', [1, 2, 3, 4])
-    ->all();
+$joinQuery = (new Query($db))
+    ->select('users.name, profiles.bio, profiles.score')
+    ->from('users')
+    ->join('profiles', 'users.id = profiles.user_id', 'INNER')
+    ->where('profiles.score', '>', 90.0)
+    ->orderBy('profiles.score', 'DESC');
 
-// Using IS NULL checks
-$pendingUsers = Query::table('users', $db)
-    ->select('*')
-    ->isNull('deleted_at')
-    ->all();
+$developer = $joinQuery->one();
+echo "Top Developer: {$developer->name} ({$developer->bio}) with score {$developer->score}\n";
 
 ```
 
 ---
 
-## Execution Methods
+## 3. IN Clause Filtering
 
-* **`all()`**: Returns an array of objects (`[]`).
-* **`one()`**: Returns a single object or `null`.
-* **`value()`**: Returns a single scalar value (ideal for `COUNT`, `SUM`, etc.).
-* **`exists()`**: Returns a boolean indicating if any records match.
+```php
+$inResults = Query::table('users', $db)
+    ->in('name', ['Alice', 'Charlie'])
+    ->all();
+
+echo "IN clause matched " . count($inResults) . " records.\n";
+
+```
+
+---
+
+## 4. Exists Check
+
+```php
+$exists = Query::table('users', $db)
+    ->where('status', '=', 'inactive')
+    ->exists();
+
+echo "Inactive users exist? " . ($exists ? 'Yes' : 'No') . "\n";
+
+```
+
+---
+
+## 5. Safe Raw SQL Fragment
+
+```php
+// Supports both positional (?) and named parameters seamlessly
+$rawResults = Query::table('users', $db)
+    ->raw('WHERE name LIKE ?', ['%li%'])
+    ->all();
+
+echo "Raw SQL query results count: " . count($rawResults) . "\n";
+
+```
