@@ -8,49 +8,49 @@ export default defineConfig({
     logo: '/logo.png',
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'PHP', link: '/php/database' },
-      { text: 'Go', link: '/go/database' },
-      { text: '.NET', link: '/dotnet/database' },
-      { text: 'Python', link: '/python/database' }
+      { text: 'PHP', link: '/packages/php/database' },
+      { text: 'Go', link: '/packages/go/database' },
+      { text: '.NET', link: '/packages/dotnet/database' },
+      { text: 'Python', link: '/packages/python/database' }
     ],
     sidebar: {
-      '/php/': [
+      '/packages/php/': [
         {
           text: 'LiteTable (PHP)',
           items: [
-            { text: 'Database', link: '/php/database' },
-            { text: 'Table', link: '/php/table' },
-            { text: 'Query', link: '/php/query' }
+            { text: 'Database', link: '/packages/php/database' },
+            { text: 'Table', link: '/packages/php/table' },
+            { text: 'Query', link: '/packages/php/query' }
           ]
         }
       ],
-      '/go/': [
+      '/packages/go/': [
         {
           text: 'LiteTable (Go)',
           items: [
-            { text: 'Database', link: '/go/database' },
-            { text: 'Table', link: '/go/table' },
-            { text: 'Query', link: '/go/query' }
+            { text: 'Database', link: '/packages/go/database' },
+            { text: 'Table', link: '/packages/go/table' },
+            { text: 'Query', link: '/packages/go/query' }
           ]
         }
       ],
-      '/dotnet/': [
+      '/packages/dotnet/': [
         {
           text: 'LiteTable (.NET)',
           items: [
-            { text: 'Database', link: '/dotnet/database' },
-            { text: 'Table', link: '/dotnet/table' },
-            { text: 'Query', link: '/dotnet/query' }
+            { text: 'Database', link: '/packages/dotnet/database' },
+            { text: 'Table', link: '/packages/dotnet/table' },
+            { text: 'Query', link: '/packages/dotnet/query' }
           ]
         }
       ],
-      '/python/': [
+      '/packages/python/': [
         {
           text: 'LiteTable (Python)',
           items: [
-            { text: 'Database', link: '/python/database' },
-            { text: 'Table', link: '/python/table' },
-            { text: 'Query', link: '/python/query' }
+            { text: 'Database', link: '/packages/python/database' },
+            { text: 'Table', link: '/packages/python/table' },
+            { text: 'Query', link: '/packages/python/query' }
           ]
         }
       ]
