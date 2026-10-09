@@ -6,14 +6,14 @@ hero:
   actions:
     - theme: brand
       text: PHP Implementation
-      link: /php/overview
+      link: /packages/php/database
     - theme: alt
       text: Go Implementation
-      link: /go/overview
+      link: /packages/go/database
     - theme: alt
       text: .NET Implementation
-      link: /dotnet/overview
+      link: /packages/dotnet/database
     - theme: alt
       text: Python Implementation
-      link: /python/overview
+      link: /packages/python/database
 ---
