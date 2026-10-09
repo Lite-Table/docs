@@ -1,8 +1,3 @@
----
-
-### `docs/packages/php/query.md`
-
-```markdown
 # Query Builder
 
 The `Query` class provides a fluent, secure, read-only SQL builder with safe parameter binding and multiple execution formats.
@@ -29,11 +24,15 @@ foreach ($admins as $admin) {
     echo $admin->name . "\n";
 }
 
-Advanced Conditions (IN, NOT IN, NULL)
+```
+
+---
+
+## Advanced Conditions (`IN`, `NOT IN`, `NULL`)
 
 The builder handles array bindings and null checks safely out of the box:
-PHP
 
+```php
 // Using IN / andIn clauses
 $users = Query::table('users', $db)
     ->select('*')
@@ -47,12 +46,13 @@ $pendingUsers = Query::table('users', $db)
     ->isNull('deleted_at')
     ->all();
 
-Execution Methods
+```
 
-    all(): Returns an array of objects ([]).
+---
 
-    one(): Returns a single object or null.
+## Execution Methods
 
-    value(): Returns a single scalar value (ideal for COUNT, SUM, etc.).
-
-    exists(): Returns a boolean indicating if any records match.
+* **`all()`**: Returns an array of objects (`[]`).
+* **`one()`**: Returns a single object or `null`.
+* **`value()`**: Returns a single scalar value (ideal for `COUNT`, `SUM`, etc.).
+* **`exists()`**: Returns a boolean indicating if any records match.
