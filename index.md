@@ -7,16 +7,16 @@ hero:
   tagline: A unified architecture featuring Database, Table, and Query abstractions for PHP, Go, .NET, and Python.
   actions:
     - theme: brand
-      text: PHP Implementation
+      text: '<img src="https://img.shields.io/badge/PHP-%23777BB4.svg?style=flat&logo=php&logoColor=white" style="display: inline; vertical-align: middle; height: 18px;" /> PHP Implementation'
       link: /packages/php/database
     - theme: alt
-      text: Go Implementation
+      text: '<img src="https://img.shields.io/badge/Go-%2300ADD8.svg?style=flat&logo=go&logoColor=white" style="display: inline; vertical-align: middle; height: 18px;" /> Go Implementation'
       link: /packages/go/database
     - theme: alt
-      text: .NET Implementation
+      text: '<img src="https://img.shields.io/badge/.NET-%23512BD4.svg?style=flat&logo=dotnet&logoColor=white" style="display: inline; vertical-align: middle; height: 18px;" /> .NET Implementation'
       link: /packages/dotnet/database
     - theme: alt
-      text: Python Implementation
+      text: '<img src="https://img.shields.io/badge/Python-%233776AB.svg?style=flat&logo=python&logoColor=white" style="display: inline; vertical-align: middle; height: 18px;" /> Python Implementation'
       link: /packages/python/database
 ---
 
@@ -38,10 +38,10 @@ The LiteTable philosophy isn't tied to a single language. We are building a cons
 
 | Language | Package Status | Description |
 | :--- | :--- | :--- |
-| **PHP** | 🟢 Active | Native PDO wrapper, fast CRUD, and query execution. |
-| **Go** | 🚧 In Progress | High-performance implementation mirroring the same DX. |
-| **.NET** | 🔜 Coming Soon | Lightweight data access mapping directly to dictionaries/structs. |
-| **Python** | 🔜 Coming Soon | Clean, minimal database utility without heavy ORM bloat. |
+| **<img src="https://img.shields.io/badge/PHP-%23777BB4.svg?style=flat&logo=php&logoColor=white" style="display: inline; vertical-align: middle; height: 18px;" /> PHP** | 🟢 Active | Native PDO wrapper, fast CRUD, and query execution. |
+| **<img src="https://img.shields.io/badge/Go-%2300ADD8.svg?style=flat&logo=go&logoColor=white" style="display: inline; vertical-align: middle; height: 18px;" /> Go** | 🚧 In Progress | High-performance implementation mirroring the same DX. |
+| **<img src="https://img.shields.io/badge/.NET-%23512BD4.svg?style=flat&logo=dotnet&logoColor=white" style="display: inline; vertical-align: middle; height: 18px;" /> .NET** | 🔜 Coming Soon | Lightweight data access mapping directly to dictionaries/structs. |
+| **<img src="https://img.shields.io/badge/Python-%233776AB.svg?style=flat&logo=python&logoColor=white" style="display: inline; vertical-align: middle; height: 18px;" /> Python** | 🔜 Coming Soon | Clean, minimal database utility without heavy ORM bloat. |
 
 ---
 
