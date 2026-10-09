@@ -6,7 +6,8 @@ The `Table` class handles low-level, high-performance CRUD and batch operations 
 
 You can use the `Table` class dynamically via the fluent `table()` method or extend it in your own model classes.
 
-```<?php
+```php
+<?php
 
 declare(strict_types=1);
 
