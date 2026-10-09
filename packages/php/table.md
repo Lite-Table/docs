@@ -1,8 +1,3 @@
----
-
-### `docs/packages/php/table.md`
-
-```markdown
 # Table
 
 The `Table` class handles low-level, high-performance CRUD and batch operations directly against a table using native PDO, without hidden magic columns.
