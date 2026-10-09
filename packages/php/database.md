@@ -18,9 +18,13 @@ $db = new Database(
     password: 'secret_password'
 );
 
-### 2. Static Factory (Database::make)
+```
 
-A cleaner, fluent alternative to new Database().
+### 2. Static Factory (`Database::make`)
+
+A cleaner, fluent alternative to `new Database()`.
+
+```php
 use LiteTable\Database;
 
 $db = Database::make(
@@ -29,11 +33,13 @@ $db = Database::make(
     password: 'secret_password'
 );
 
-3. Reusing an Existing PDO Instance
+```
 
-If your application already manages a PDO instance (e.g., via a framework container), you can inject it directly.
-PHP
+### 3. Reusing an Existing PDO Instance
 
+If your application already manages a `PDO` instance (e.g., via a framework container), you can inject it directly.
+
+```php
 use LiteTable\Database;
 
 $pdo = new PDO('mysql:host=localhost;dbname=my_database', 'root', 'secret');
@@ -42,14 +48,20 @@ $db = new Database($pdo);
 // Or using the factory alias:
 // $db = Database::connect($pdo);
 
-Transactions
+```
 
-The transaction() helper automatically commits on success or rolls back if an exception is thrown inside the closure.
-PHP
+---
 
+## Transactions
+
+The `transaction()` helper automatically commits on success or rolls back if an exception is thrown inside the closure.
+
+```php
 $db->transaction(function (Database $db) {$db->prepare("UPDATE accounts SET balance = balance - 100 WHERE id = :id")
        ->execute(['id' => 1]);
 
     $db->prepare("UPDATE accounts SET balance = balance + 100 WHERE id = :id")
        ->execute(['id' => 2]);
 });
+
+```
