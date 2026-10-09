@@ -7,16 +7,16 @@ hero:
   tagline: A unified architecture featuring Database, Table, and Query abstractions for PHP, Go, .NET, and Python.
   actions:
     - theme: brand
-      text: '<img src="https://img.shields.io/badge/PHP-%23777BB4.svg?style=flat&logo=php&logoColor=white" style="display: inline; vertical-align: middle; height: 18px;" /> PHP Implementation'
+      text: 🐘 PHP Implementation
       link: /packages/php/database
     - theme: alt
-      text: '<img src="https://img.shields.io/badge/Go-%2300ADD8.svg?style=flat&logo=go&logoColor=white" style="display: inline; vertical-align: middle; height: 18px;" /> Go Implementation'
+      text: 🐹 Go Implementation
       link: /packages/go/database
     - theme: alt
-      text: '<img src="https://img.shields.io/badge/.NET-%23512BD4.svg?style=flat&logo=dotnet&logoColor=white" style="display: inline; vertical-align: middle; height: 18px;" /> .NET Implementation'
+      text: 💜 .NET Implementation
       link: /packages/dotnet/database
     - theme: alt
-      text: '<img src="https://img.shields.io/badge/Python-%233776AB.svg?style=flat&logo=python&logoColor=white" style="display: inline; vertical-align: middle; height: 18px;" /> Python Implementation'
+      text: 🐍 Python Implementation
       link: /packages/python/database
 ---
 
